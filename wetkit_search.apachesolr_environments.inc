@@ -17,46 +17,7 @@ function wetkit_search_apachesolr_environments() {
   $environment->url = 'http://localhost:8983/solr';
   $environment->service_class = '';
   $environment->conf = array(
-    'apachesolr_index_last' => array(
-      'node' => array(
-        'last_changed' => '1373473285',
-        'last_entity_id' => '6',
-      ),
-      'taxonomy_term' => array(
-        'last_changed' => 0,
-        'last_entity_id' => 0,
-      ),
-      'bean' => array(
-        'last_changed' => 0,
-        'last_entity_id' => 0,
-      ),
-      'fieldable_panels_pane' => array(
-        'last_changed' => 0,
-        'last_entity_id' => 0,
-      ),
-      'i18n_translation' => array(
-        'last_changed' => 0,
-        'last_entity_id' => 0,
-      ),
-      'file' => array(
-        'last_changed' => 0,
-        'last_entity_id' => 0,
-      ),
-      'taxonomy_vocabulary' => array(
-        'last_changed' => 0,
-        'last_entity_id' => 0,
-      ),
-      'user' => array(
-        'last_changed' => 0,
-        'last_entity_id' => 0,
-      ),
-      'wysiwyg_profile' => array(
-        'last_changed' => 0,
-        'last_entity_id' => 0,
-      ),
-    ),
-    'apachesolr_index_updated' => 1373473285,
-    'apachesolr_last_optimize' => 1373473285,
+    'apachesolr_index_last' => array(),
   );
   $environment->index_bundles = array(
     'node' => array(
