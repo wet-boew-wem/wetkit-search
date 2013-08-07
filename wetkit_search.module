@@ -50,7 +50,7 @@ function wetkit_search_form_apachesolr_sort_sort_form__alter(&$form, &$form_stat
     $form['apachesolr_sort_name']['#options']['sort_label_desc'] = t('Name Descending');
     $form['apachesolr_sort_name']['#options']['score'] = t('Relevance');
     $form['apachesolr_sort_name']['#options']['bundle'] = t('Type');
-    
+
     // Change submit handler.
     $form['actions']['submit']['#value'] = t('Go');
     $form['actions']['submit']['#attributes'] = array(
@@ -64,11 +64,11 @@ function wetkit_search_form_apachesolr_sort_sort_form__alter(&$form, &$form_stat
  */
 function wetkit_search_sort_form_submit($form, &$form_state) {
   $query = $form_state['values']['apachesolr_sort_query'];
-  
+
   // Asc or Desc logic.
   $name = $form_state['values']['apachesolr_sort_name'];
   if ($name == 'sort_label_desc') {
-    $direction = 'desc';    
+    $direction = 'desc';
   }
   else {
     $direction = 'asc';
@@ -94,23 +94,29 @@ function wetkit_search_theme_registry_alter(&$theme_registry) {
   // Theme FacetAPI Templates
   $theme_registry['facetapi_count']['theme path'] = drupal_get_path('module', 'wetkit_search');
   $theme_registry['facetapi_count']['function'] = 'wetkit_search_facetapi_count';
+  $theme_registry['facetapi_count']['final'] = TRUE;
 
   $theme_registry['facetapi_link_inactive']['theme path'] = drupal_get_path('module', 'wetkit_search');
   $theme_registry['facetapi_link_inactive']['function'] = 'wetkit_search_facetapi_link_inactive';
+  $theme_registry['facetapi_link_inactive']['final'] = TRUE;
 
   $theme_registry['facetapi_link_active']['theme path'] = drupal_get_path('module', 'wetkit_search');
   $theme_registry['facetapi_link_active']['function'] = 'wetkit_search_facetapi_link_active';
+  $theme_registry['facetapi_link_active']['final'] = TRUE;
 
   // Theme ApacheSolr Templates
   $theme_registry['apachesolr_search_snippets']['theme path'] = drupal_get_path('module', 'wetkit_search');
   $theme_registry['apachesolr_search_snippets']['function'] = 'wetkit_search_apachesolr_search_snippets';
+  $theme_registry['apachesolr_search_snippets']['final'] = TRUE;
 
   $theme_registry['apachesolr_search_snippets__file']['theme path'] = drupal_get_path('module', 'wetkit_search');
   $theme_registry['apachesolr_search_snippets__file']['function'] = 'wetkit_search_apachesolr_search_snippets__file';
+  $theme_registry['apachesolr_search_snippets__file']['final'] = TRUE;
 
   //  Theme Views Exposed Form
   $theme_registry['views_exposed_form']['path'] = drupal_get_path('module', 'wetkit_search') . '/templates';
   $theme_registry['views_exposed_form']['theme path'] = drupal_get_path('module', 'wetkit_search') . '/templates';
+  $theme_registry['views_exposed_form']['final'] = TRUE;
 }
 
 /**
@@ -171,15 +177,15 @@ function wetkit_search_apachesolr_index_document_build(ApacheSolrDocument $docum
     $document->teaser = truncate_utf8($document->content, 300, TRUE);
 
     // Add field_example to apache solr index, so that we can later display image in search results.
-    if (isset($entity->field_example['und']['0']['uri'])) {  
+    if (isset($entity->field_example['und']['0']['uri'])) {
       $document->addField('ss_field_example', $entity->field_example['und']['0']['uri']);
     }
     // Add field_example uri to apache solr index, so that we can later display image in search results.
-    if (isset($entity->field_example['en']['0']['safe_value'])) {  
+    if (isset($entity->field_example['en']['0']['safe_value'])) {
       $document->addField('ss_field_example', $entity->field_example['en']['0']['safe_value']);
     }
     // Add field_example uri to apache solr index, so that we can later display image in search results.
-    if (isset($entity->field_example['fr']['0']['safe_value'])) {  
+    if (isset($entity->field_example['fr']['0']['safe_value'])) {
       $document->addField('ss_field_example', $entity->field_example['fr']['0']['safe_value']);
     }
   }
@@ -213,8 +219,8 @@ function wetkit_search_apachesolr_query_alter(DrupalSolrQueryInterface $query) {
  */
 function wetkit_search_apachesolr_field_mappings() {
   // load the required callbacks.
-  module_load_include('inc', 'apachesolr', 'apachesolr.index'); 
-  module_load_include('inc', 'facetapi', 'facetapi.callbacks'); 
+  module_load_include('inc', 'apachesolr', 'apachesolr.index');
+  module_load_include('inc', 'facetapi', 'facetapi.callbacks');
 
   $mappings = array(
     // Field API field.
@@ -231,32 +237,32 @@ function wetkit_search_apachesolr_field_mappings() {
         // have the name of the return value.
         'name callback' => FALSE,
         // If a custom field needs to be searchable but does not need to be faceted you
-        // can change the 'facets' parameter to FALSE. 
+        // can change the 'facets' parameter to FALSE.
         'facets' => TRUE,
         // Specific facet to be leveraged.
         'facet_block_callback' => 'apachesolr_search_taxonomy_facet_block',
         // Do you want to allow items without value .
         'facet missing allowed' => FALSE,
         // (optional)  Whether or not the facet supports the
-        //    "minimum facet count" setting. Defaults to TRUE. 
+        //    "minimum facet count" setting. Defaults to TRUE.
         'facet mincount allowed' => TRUE,
         // Field API allows any field to be multi-valued.
-        // If we set this to false we are able to sort 
+        // If we set this to false we are able to sort
         'dependency plugins' => array('bundle', 'role'),
         // Does your solr index has a hierarchy?
         // See facetapi_get_taxonomy_hierarchy for details or
-        // view the mapping of taxonomy_term_reference 
+        // view the mapping of taxonomy_term_reference
         'hierarchy callback' => 'facetapi_get_taxonomy_hierarchy',
         // There are different query types to return information from Solr
         // term : Regular strings
         // date : Everything regarding dates
         // numeric_range : Useful when you have widgets that depend
-        //   on statistics coming from Solr 
+        //   on statistics coming from Solr
         'query types' => array('term'),
         // Backwards compatible with previous facetapi versions.
-        // Pick the main query type 
+        // Pick the main query type
         'query type' => 'term',
-        // What dependencies do you have (see facetapi) 
+        // What dependencies do you have (see facetapi)
         'multiple' => TRUE,
       ),
     ),
