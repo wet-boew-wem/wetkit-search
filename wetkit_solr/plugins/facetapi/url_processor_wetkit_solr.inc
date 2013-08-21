@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * URL Processor for WetKit Search.
+ * URL Processor for WetKit Solr.
  */
 
 /**
  * Extension of FacetapiUrlProcessor.
  */
-class FacetapiUrlProcessorWetKitSearch extends FacetapiUrlProcessorStandard {
+class FacetapiUrlProcessorWetKitSolr extends FacetapiUrlProcessorStandard {
   /**
    * Overrides FacetapiUrlProcessor::fetchParams().
    *

@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * wetkit_search.apachesolr_search_defaults.inc
+ * wetkit_solr.apachesolr_search_defaults.inc
  */
 
 /**
  * Implements hook_apachesolr_search_default_searchers().
  */
-function wetkit_search_apachesolr_search_default_searchers() {
+function wetkit_solr_apachesolr_search_default_searchers() {
   $export = array();
 
   $searcher = new stdClass();

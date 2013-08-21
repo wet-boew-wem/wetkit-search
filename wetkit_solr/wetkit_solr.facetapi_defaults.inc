@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * wetkit_search.facetapi_defaults.inc
+ * wetkit_solr.facetapi_defaults.inc
  */
 
 /**
  * Implements hook_facetapi_default_facet_settings().
  */
-function wetkit_search_facetapi_default_facet_settings() {
+function wetkit_solr_facetapi_default_facet_settings() {
   $export = array();
 
   $facet = new stdClass();

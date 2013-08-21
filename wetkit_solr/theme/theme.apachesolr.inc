@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Code for the WetKit Search feature.
+ * Code for the WetKit Solr feature.
  */
 
 /**
@@ -10,7 +10,7 @@
  * @param array $vars
  *
  */
-function wetkit_search_apachesolr_search_snippets($vars) {
+function wetkit_solr_apachesolr_search_snippets($vars) {
   $max_snippets = variable_get('apachesolr_search_max_snippets', 5);
   $max_depth = $max_snippets * 10;
   $result = '';
@@ -41,7 +41,7 @@ function wetkit_search_apachesolr_search_snippets($vars) {
  * @param type $vars
  * @return type
  */
-function wetkit_search_apachesolr_search_snippets__file($vars) {
+function wetkit_solr_apachesolr_search_snippets__file($vars) {
   $doc = $vars['doc'];
   $snippets = $vars['snippets'];
   $parent_entity_links = array();
@@ -71,7 +71,7 @@ function wetkit_search_apachesolr_search_snippets__file($vars) {
  *
  * @see search_help()
  */
-function wetkit_search_apachesolr_search_noresults() {
+function wetkit_solr_apachesolr_search_noresults() {
   return t('<ul>
 <li>Check if your spelling is correct, or try removing filters.</li>
 <li>Remove quotes around phrases to match each word individually: <em>"blue drop"</em> will match less than <em>blue drop</em>.</li>
