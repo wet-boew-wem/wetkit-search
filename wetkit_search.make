@@ -22,8 +22,8 @@ projects[apachesolr][patch][1852088] = http://drupal.org/files/apachesolr-teaser
 projects[apachesolr][patch][1852088] = http://drupal.org/files/2017593-apache_solr_node_status_callback-3_0.patch
 
 projects[apachesolr_autocomplete][version] = 1.x-dev
-projects[apachesolr_autocomplete][type] = search
-projects[apachesolr_autocomplete][subdir] = contrib
+projects[apachesolr_autocomplete][type] = module
+projects[apachesolr_autocomplete][subdir] = search
 projects[apachesolr_autocomplete][download][type] = git
 projects[apachesolr_autocomplete][download][revision] = dbd4c36
 projects[apachesolr_autocomplete][download][branch] = 7.x-1.x
@@ -33,15 +33,15 @@ projects[apachesolr_autocomplete][patch][1882050] = http://drupal.org/files/apac
 projects[apachesolr_autocomplete][patch][1828930] = http://drupal.org/files/order_of_spellcheck_suggestions-1828930-2.patch
 
 projects[apachesolr_multilingual][version] = 1.x-dev
-projects[apachesolr_multilingual][type] = search
-projects[apachesolr_multilingual][subdir] = contrib
+projects[apachesolr_multilingual][type] = module
+projects[apachesolr_multilingual][subdir] = search
 projects[apachesolr_multilingual][download][type] = git
 projects[apachesolr_multilingual][download][revision] = ff47c1d
 projects[apachesolr_multilingual][download][branch] = 7.x-1.x
 
 projects[apachesolr_sort][version] = 1.x-dev
-projects[apachesolr_sort][type] = search
-projects[apachesolr_sort][subdir] = contrib
+projects[apachesolr_sort][type] = module
+projects[apachesolr_sort][subdir] = search
 projects[apachesolr_sort][download][type] = git
 projects[apachesolr_sort][download][revision] = 4dd78b6
 projects[apachesolr_sort][download][branch] = 7.x-1.x
@@ -50,8 +50,8 @@ projects[apachesolr_sort][patch][1923818] = http://drupal.org/files/apachesolr_s
 ;projects[apachesolr_sort][patch][1722114] = http://drupal.org/files/apachesolr_sort-undefined_index_groupValue-1722114.patch
 
 projects[apachesolr_views][version] = 1.x-dev
-projects[apachesolr_views][type] = search
-projects[apachesolr_views][subdir] = contrib
+projects[apachesolr_views][type] = module
+projects[apachesolr_views][subdir] = search
 projects[apachesolr_views][download][type] = git
 projects[apachesolr_views][download][revision] = 36f14d1
 projects[apachesolr_views][download][branch] = 7.x-1.x
