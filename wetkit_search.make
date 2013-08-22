@@ -66,8 +66,8 @@ projects[apachesolr_views][patch][1750952] = http://drupal.org/files/use_argumen
 ; Facet API
 
 projects[date_facets][version] = 1.x-dev
-projects[date_facets][type] = search
-projects[date_facets][subdir] = contrib
+projects[date_facets][type] = module
+projects[date_facets][subdir] = search
 projects[date_facets][download][type] = git
 projects[date_facets][download][revision] = 2ccceda
 projects[date_facets][download][branch] = 7.x-1.x
