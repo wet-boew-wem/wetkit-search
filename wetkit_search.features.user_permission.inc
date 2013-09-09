@@ -10,20 +10,22 @@
 function wetkit_search_user_default_permissions() {
   $permissions = array();
 
-  // Exported permission: use custom search.
+  // Exported permission: 'use custom search'.
   $permissions['use custom search'] = array(
     'name' => 'use custom search',
     'roles' => array(
       'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
     ),
     'module' => 'custom_search',
   );
 
-  // Exported permission: use custom search blocks.
+  // Exported permission: 'use custom search blocks'.
   $permissions['use custom search blocks'] = array(
     'name' => 'use custom search blocks',
     'roles' => array(
       'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
     ),
     'module' => 'custom_search_blocks',
   );
