@@ -63,7 +63,7 @@ function wetkit_search_facetapi_link_inactive($variables) {
   // link text and are providing additional markup for accessibility.
   $variables['text'] .= $accessible_markup;
   $variables['options']['html'] = TRUE;
-  return theme_link($variables);
+  return theme('link', $variables);
 }
 
 /**
@@ -111,7 +111,7 @@ function wetkit_search_facetapi_link_active($variables) {
   );
   $variables['text'] = t('!facetapi_deactivate_widget !facetapi_accessible_markup', $replacements);
   $variables['options']['html'] = TRUE;
-  return theme_link($variables) . $link_text;
+  return theme('link', $variables) . $link_text;
 }
 
 /**

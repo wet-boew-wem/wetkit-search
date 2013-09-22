@@ -6,9 +6,6 @@
 
 /**
  * Theme the highlighted snippet text for a search entry.
- *
- * @param array $vars
- *
  */
 function wetkit_solr_apachesolr_search_snippets($vars) {
   $max_snippets = variable_get('apachesolr_search_max_snippets', 5);
@@ -30,13 +27,15 @@ function wetkit_solr_apachesolr_search_snippets($vars) {
         break;
       }
     }
-    unset($snippet); // clean up reference
+    unset($snippet);
     $result .= implode(' ... ', array_unique(array_filter($vars['snippets'], 'is_string')));
   }
   return $result . ' ...';
 }
 
 /**
+ * Customize the search snippets file output.
+ *
  * @todo Vastly improve this theming function
  * @param type $vars
  * @return type

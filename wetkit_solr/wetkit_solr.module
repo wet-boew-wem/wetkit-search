@@ -11,24 +11,24 @@ include_once 'theme/theme.apachesolr.inc';
  * Implements hook_form_id_alter().
  */
 function wetkit_solr_form_apachesolr_sort_sort_form__alter(&$form, &$form_state, $form_id) {
-    // Unset some Fields
-    unset($form['apachesolr_sort_name']['#title']);
-    unset($form['apachesolr_sort_direction']);
-    unset($form['apachesolr_sort_name']['#options']);
+  // Unset some Fields.
+  unset($form['apachesolr_sort_name']['#title']);
+  unset($form['apachesolr_sort_direction']);
+  unset($form['apachesolr_sort_name']['#options']);
 
-    // Modify options dropdown.
-    $form['apachesolr_sort_name']['#options']['ds_changed'] = t('Last Modified');
-    $form['apachesolr_sort_name']['#options']['sort_label'] = t('Name Ascending');
-    $form['apachesolr_sort_name']['#options']['sort_label_desc'] = t('Name Descending');
-    $form['apachesolr_sort_name']['#options']['score'] = t('Relevance');
-    $form['apachesolr_sort_name']['#options']['bundle'] = t('Type');
+  // Modify options dropdown.
+  $form['apachesolr_sort_name']['#options']['ds_changed'] = t('Last Modified');
+  $form['apachesolr_sort_name']['#options']['sort_label'] = t('Name Ascending');
+  $form['apachesolr_sort_name']['#options']['sort_label_desc'] = t('Name Descending');
+  $form['apachesolr_sort_name']['#options']['score'] = t('Relevance');
+  $form['apachesolr_sort_name']['#options']['bundle'] = t('Type');
 
-    // Change submit handler.
-    $form['actions']['submit']['#value'] = t('Go');
-    $form['actions']['submit']['#attributes'] = array(
-      'class' => array('gcwu-srch-submit'),
-    );
-    $form['#submit'][0] = 'wetkit_solr_sort_form_submit';
+  // Change submit handler.
+  $form['actions']['submit']['#value'] = t('Go');
+  $form['actions']['submit']['#attributes'] = array(
+    'class' => array('gcwu-srch-submit'),
+  );
+  $form['#submit'][0] = 'wetkit_solr_sort_form_submit';
 }
 
 /**
@@ -60,10 +60,10 @@ function wetkit_solr_sort_form_submit($form, &$form_state) {
 }
 
 /**
- * Implements hook_theme_registry_alter
+ * Implements hook_theme_registry_alter().
  */
 function wetkit_solr_theme_registry_alter(&$theme_registry) {
-  // Theme ApacheSolr Templates
+  // Theme ApacheSolr Templates.
   $theme_registry['apachesolr_search_snippets']['theme path'] = drupal_get_path('module', 'wetkit_solr');
   $theme_registry['apachesolr_search_snippets']['function'] = 'wetkit_solr_apachesolr_search_snippets';
   $theme_registry['apachesolr_search_snippets']['final'] = TRUE;
@@ -74,23 +74,26 @@ function wetkit_solr_theme_registry_alter(&$theme_registry) {
 }
 
 /**
-* Implements hook_solr_apachesolr_index_document_build().
-*/
+ * Implements hook_solr_apachesolr_index_document_build().
+ */
 function wetkit_solr_apachesolr_index_document_build(ApacheSolrDocument $document, $entity, $entity_type, $env_id) {
   if ($entity->type == 'wetkit_page') {
     $field = field_get_items($entity_type, $entity, 'body');
     $document->content = apachesolr_clean_text($field[0]['value']);
     $document->teaser = truncate_utf8($document->content, 300, TRUE);
 
-    // Add field_example to apache solr index, so that we can later display image in search results.
-    if (isset($entity->field_example['und']['0']['uri'])) {
-      $document->addField('ss_field_example', $entity->field_example['und']['0']['uri']);
+    // Add field_example to apache solr index, so that we can
+    // later display image in search results.
+    if (isset($entity->field_example[LANGUAGE_NONE]['0']['uri'])) {
+      $document->addField('ss_field_example', $entity->field_example[LANGUAGE_NONE]['0']['uri']);
     }
-    // Add field_example uri to apache solr index, so that we can later display image in search results.
+    // Add field_example uri to apache solr index, so that we can
+    // later display image in search results.
     if (isset($entity->field_example['en']['0']['safe_value'])) {
       $document->addField('ss_field_example', $entity->field_example['en']['0']['safe_value']);
     }
-    // Add field_example uri to apache solr index, so that we can later display image in search results.
+    // Add field_example uri to apache solr index, so that we can
+    // later display image in search results.
     if (isset($entity->field_example['fr']['0']['safe_value'])) {
       $document->addField('ss_field_example', $entity->field_example['fr']['0']['safe_value']);
     }
@@ -98,11 +101,11 @@ function wetkit_solr_apachesolr_index_document_build(ApacheSolrDocument $documen
 }
 
 /**
-* Implements hook_apachesolr_query_alter().
-*/
+ * Implements hook_apachesolr_query_alter().
+ */
 function wetkit_solr_apachesolr_query_alter(DrupalSolrQueryInterface $query) {
 
-  // Get the Path of the Solr Query
+  // Get the Path of the Solr Query.
   $solr_core = $query->getPath();
 
   global $language;
@@ -115,7 +118,7 @@ function wetkit_solr_apachesolr_query_alter(DrupalSolrQueryInterface $query) {
 
   // Modify Different ApacheSolr Pages.
   if (preg_match("/search\/site/i", $solr_core)) {
-    $query->addParam('fq','ss_language:' . $val_lang);
+    $query->addParam('fq', 'ss_language:' . $val_lang);
     $query->addParam('fq', "bundle:(wetkit_page OR apps OR wetkit_documentation)");
   }
 }
@@ -124,51 +127,26 @@ function wetkit_solr_apachesolr_query_alter(DrupalSolrQueryInterface $query) {
  * Implements hook_apachesolr_field_mappings().
  */
 function wetkit_solr_apachesolr_field_mappings() {
-  // load the required callbacks.
+  // Load the required callbacks.
   module_load_include('inc', 'apachesolr', 'apachesolr.index');
   module_load_include('inc', 'facetapi', 'facetapi.callbacks');
 
   $mappings = array(
     // Field API field.
     'per-field' => array(
-      // machine name of the field in FAPI.
       'field_example' => array(
-        // Function callback to return the value that will be put in solr index.
         'indexing_callback' => 'wetkit_solr_entityreference_indexing_callback',
-        // See apachesolr_index_key() for the correct type. Defaults to string.
         'index_type' => 'integer',
-        // How to display the values when they return as a facet .
         'map callback' => 'facetapi_map_taxonomy_terms',
-        // Does your facet have a dynamic name? Add function call here and will
-        // have the name of the return value.
         'name callback' => FALSE,
-        // If a custom field needs to be searchable but does not need to be faceted you
-        // can change the 'facets' parameter to FALSE.
         'facets' => TRUE,
-        // Specific facet to be leveraged.
         'facet_block_callback' => 'apachesolr_search_taxonomy_facet_block',
-        // Do you want to allow items without value .
         'facet missing allowed' => FALSE,
-        // (optional)  Whether or not the facet supports the
-        //    "minimum facet count" setting. Defaults to TRUE.
         'facet mincount allowed' => TRUE,
-        // Field API allows any field to be multi-valued.
-        // If we set this to false we are able to sort
         'dependency plugins' => array('bundle', 'role'),
-        // Does your solr index has a hierarchy?
-        // See facetapi_get_taxonomy_hierarchy for details or
-        // view the mapping of taxonomy_term_reference
         'hierarchy callback' => 'facetapi_get_taxonomy_hierarchy',
-        // There are different query types to return information from Solr
-        // term : Regular strings
-        // date : Everything regarding dates
-        // numeric_range : Useful when you have widgets that depend
-        //   on statistics coming from Solr
         'query types' => array('term'),
-        // Backwards compatible with previous facetapi versions.
-        // Pick the main query type
         'query type' => 'term',
-        // What dependencies do you have (see facetapi)
         'multiple' => TRUE,
       ),
     ),
@@ -177,17 +155,10 @@ function wetkit_solr_apachesolr_field_mappings() {
 }
 
 /**
- * Callback that converts term_reference field into an array
- *
- * @param object $node
- * @param string $field_name
- * @param string $index_key
- * @param array $field_info
- * @return array $fields
- *   fields that will be indexed for this term reference
+ * Callback that converts term_reference field into an array.
  */
 function wetkit_solr_entityreference_indexing_callback($node, $field_name, $index_key, array $field_info) {
-  // Keep ancestors cached
+  // Keep ancestors cached.
   $ancestors = &drupal_static(__FUNCTION__, array());
 
   $fields = array();
@@ -201,8 +172,7 @@ function wetkit_solr_entityreference_indexing_callback($node, $field_name, $inde
       $item['tid'] = $item['target_id'];
 
       // Triple indexing of tids lets us do efficient searches (on tid)
-      // and do accurate per field or per-vocabulary faceting.
-
+      // and do accurate per field or per-vocabulary faceting
       // By including the ancestors to a term in the index we make
       // sure that searches for general categories match specific
       // categories, e.g. Fruit -> apple, a search for fruit will find
@@ -216,8 +186,8 @@ function wetkit_solr_entityreference_indexing_callback($node, $field_name, $inde
         // We would need a separate field if we were to index terms without any
         // hierarchy at all.
         // If the term is singular, then we cannot add another value to the
-        // document as the field is single
-        if ($field_info['multiple'] == true) {
+        // document as the field is single.
+        if ($field_info['multiple'] == TRUE) {
           $fields[] = array(
             'key' => $index_key,
             'value' => $ancestor->tid,
@@ -241,7 +211,8 @@ function wetkit_solr_entityreference_indexing_callback($node, $field_name, $inde
         );
       }
     }
-    // Index the term names into a text field for MLT queries and keyword searching.
+    // Index the term names into a text field for MLT queries and
+    // keyword searching.
     foreach ($vocab_names as $vid => $names) {
       $fields[] = array(
         'key' => 'tm_vid_' . $vid . '_names',
@@ -254,10 +225,6 @@ function wetkit_solr_entityreference_indexing_callback($node, $field_name, $inde
 
 /**
  * Implements hook_form_alter().
- *
- * @param type $form
- * @param type $form_state
- * @param type $form_id
  */
 function wetkit_solr_form_alter(&$form, $form_state, $form_id) {
   if ($form_id == 'views_exposed_form') {
@@ -309,26 +276,4 @@ function wetkit_solr_facetapi_searcher_info_alter(array &$searcher_info) {
   foreach ($searcher_info as &$info) {
     $info['url processor'] = 'wetkit_solr';
   }
-}
-
-
-/**
- * Implements hook_apachesolr_search_page_alter().
- */
-function wetkit_solr_apachesolr_search_page_alter($build, $search_page) {
-
-}
-
-/**
- * Implements hook_apachesolr_query_prepare().
- */
-function wetkit_solr_apachesolr_query_prepare($query) {
-
-}
-
-/**
-* Implements hook_apachesolr_field_mappings_alter().
-*/
-function wetkit_solr_apachesolr_field_mappings_alter(&$mappings, $entity_type) {
-
 }
