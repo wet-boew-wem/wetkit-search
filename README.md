@@ -1,6 +1,6 @@
 WetKit Search
 =============
-Indexes and searches site content for Drupal WEM.
+Indexes and searches site content for Drupal WxT.
 
 Key Features
 * Integration with ApacheSolr

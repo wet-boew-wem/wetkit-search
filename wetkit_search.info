@@ -1,5 +1,5 @@
 name = WetKit Search
-description = Search configuration and integration with Drupal WEM.
+description = Search configuration and integration with Drupal WxT.
 core = 7.x
 package = WetKit
 dependencies[] = ctools
