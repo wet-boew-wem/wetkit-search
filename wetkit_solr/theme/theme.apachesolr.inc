@@ -19,7 +19,7 @@ function wetkit_solr_apachesolr_search_snippets($vars) {
         $vars['snippets'] = array_merge($vars['snippets'], array_values($snippet));
         unset($vars['snippets'][$key]);
         if (--$max_depth <= 0) {
-          // Paranoia: avoid endless loop if someone passes in endless arrays of arrays.
+          // Avoid endless loop if someone passes in endless arrays of arrays.
           break;
         }
       }
@@ -35,10 +35,6 @@ function wetkit_solr_apachesolr_search_snippets($vars) {
 
 /**
  * Customize the search snippets file output.
- *
- * @todo Vastly improve this theming function
- * @param type $vars
- * @return type
  */
 function wetkit_solr_apachesolr_search_snippets__file($vars) {
   $doc = $vars['doc'];
@@ -46,7 +42,7 @@ function wetkit_solr_apachesolr_search_snippets__file($vars) {
   $parent_entity_links = array();
 
   // Retrieve our parent entities. They have been saved as
-  // a small serialized entity
+  // a small serialized entity.
   foreach ($doc->zm_parent_entity as $parent_entity_encoded) {
     $parent_entity = (object) drupal_json_decode($parent_entity_encoded);
     $parent_entity_uri = entity_uri($parent_entity->entity_type, $parent_entity);
@@ -56,7 +52,13 @@ function wetkit_solr_apachesolr_search_snippets__file($vars) {
   }
 
   if (module_exists('file')) {
-    $file_type = t('!icon @filemime', array('@filemime' => $doc->ss_filemime, '!icon' => theme('file_icon', array('file' => (object) array('filemime' => $doc->ss_filemime)))));
+    $file_type = t('!icon @filemime', array(
+      '@filemime' => $doc->ss_filemime, '!icon' => theme('file_icon', array(
+        'file' => (object) array(
+          'filemime' => $doc->ss_filemime),
+        ),
+      ),
+    ));
   }
   else {
     $file_type = t('@filemime', array('@filemime' => $doc->ss_filemime));

@@ -7,7 +7,7 @@
 /**
  * Extension of FacetapiUrlProcessor.
  */
-class FacetapiUrlProcessorWetKitSolr extends FacetapiUrlProcessorStandard {
+class WetKitSolrUrlProcessor extends FacetapiUrlProcessorStandard {
   /**
    * Overrides FacetapiUrlProcessor::fetchParams().
    *

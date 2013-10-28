@@ -7,7 +7,7 @@
 /**
  * Returns HTML for a "missing" facet link.
  *
- * @param $variables
+ * @param array $variables
  *   An associative array containing:
  *   - field_name: The name of the facet field.
  *
@@ -20,7 +20,7 @@ function wetkit_search_facetapi_facet_missing($variables) {
 /**
  * Returns HTML for the facet title, usually the title of the block.
  *
- * @param $variables
+ * @param array $variables
  *   An associative array containing:
  *   - title: The title of the facet.
  *   - facet: The facet definition as returned by facetapi_facet_load().
@@ -34,7 +34,7 @@ function wetkit_search_facetapi_title($variables) {
 /**
  * Returns HTML for an active facet item.
  *
- * @param $variables
+ * @param array $variables
  *   An associative array containing the keys 'text', 'path', 'options', and
  *   'count'. See the l() and theme_facetapi_count() functions for information
  *   about these variables.
@@ -69,7 +69,7 @@ function wetkit_search_facetapi_link_inactive($variables) {
 /**
  * Returns HTML for the inactive facet item's count.
  *
- * @param $variables
+ * @param array $variables
  *   An associative array containing:
  *   - count: The item's facet count.
  *
@@ -82,7 +82,7 @@ function wetkit_search_facetapi_count($variables) {
 /**
  * Returns HTML for an inactive facet item.
  *
- * @param $variables
+ * @param array $variables
  *   An associative array containing the keys 'text', 'path', and 'options'. See
  *   the l() function for information about these variables.
  *
@@ -117,7 +117,7 @@ function wetkit_search_facetapi_link_active($variables) {
 /**
  * Returns HTML for the deactivation widget.
  *
- * @param $variables
+ * @param array $variables
  *   An associative array containing the keys 'text', 'path', and 'options'. See
  *   the l() function for information about these variables.
  *
@@ -133,7 +133,7 @@ function wetkit_search_facetapi_deactivate_widget($variables) {
 /**
  * Returns HTML that adds accessible markup to facet links.
  *
- * @param $variables
+ * @param array $variables
  *   An associative array containing:
  *   - text: The text of the facet link.
  *   - active: Whether the item is active or not.
