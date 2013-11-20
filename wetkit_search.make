@@ -38,13 +38,6 @@ projects[facetapi_i18n][download][revision] = 097d061
 projects[facetapi_i18n][download][branch] = 7.x-1.x
 projects[facetapi_i18n][patch][2027055] = http://drupal.org/files/missing_reset_filters-2027055-01.patch
 
-projects[facetapi_pretty_paths][version] = 1.x-dev
-projects[facetapi_pretty_paths][type] = module
-projects[facetapi_pretty_paths][subdir] = contrib
-projects[facetapi_pretty_paths][download][type] = git
-projects[facetapi_pretty_paths][download][revision] = 66f6a52
-projects[facetapi_pretty_paths][download][branch] = 7.x-1.x
-
 ; Contrib Modules
 
 projects[custom_search][version] = 1.x-dev
