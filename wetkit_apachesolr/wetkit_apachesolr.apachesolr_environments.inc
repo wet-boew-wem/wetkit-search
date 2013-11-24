@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * wetkit_solr.apachesolr_environments.inc
+ * wetkit_apachesolr.apachesolr_environments.inc
  */
 
 /**
  * Implements hook_apachesolr_environments().
  */
-function wetkit_solr_apachesolr_environments() {
+function wetkit_apachesolr_apachesolr_environments() {
   $export = array();
 
   $environment = new stdClass();

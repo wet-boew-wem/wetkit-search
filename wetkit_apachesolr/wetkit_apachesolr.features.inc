@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * wetkit_solr.features.inc
+ * wetkit_apachesolr.features.inc
  */
 
 /**
  * Implements hook_ctools_plugin_api().
  */
-function wetkit_solr_ctools_plugin_api() {
+function wetkit_apachesolr_ctools_plugin_api() {
   list($module, $api) = func_get_args();
   if ($module == "apachesolr" && $api == "apachesolr_environments") {
     return array("version" => "1");
