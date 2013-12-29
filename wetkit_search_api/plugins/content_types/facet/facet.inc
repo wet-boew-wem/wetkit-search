@@ -16,6 +16,26 @@ $plugin = array(
 );
 
 /**
+ * Facets admin title for WetKit Search.
+ *
+ * @param array $subtype
+ *   The subtype passed to CTools.
+ * @param array $conf
+ *   The configuration that is passed to CTools.
+ * @param array $context
+ *   The CTools context that helpers to render the content.
+ *
+ * @return string
+ *   The returned admin title string for the facets related to WetKit Search.
+ */
+function wetkit_search_api_facet_content_type_admin_title($subtype, $conf, $context) {
+  $map = facetapi_get_delta_map();
+  $delta = $conf['delta'];
+  list($searcher, $realm_name, $facet_name) = explode(':', $map[$delta]);
+  return t('"@s" facet', array('@s' => $facet_name));
+}
+
+/**
  * Facets edit form for WetKit Search.
  *
  * @param array $form
