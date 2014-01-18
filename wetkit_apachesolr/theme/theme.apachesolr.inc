@@ -56,8 +56,7 @@ function wetkit_apachesolr_apachesolr_search_snippets__file($vars) {
       '@filemime' => $doc->ss_filemime, '!icon' => theme('file_icon', array(
         'file' => (object) array(
           'filemime' => $doc->ss_filemime),
-        ),
-      ),
+      ))
     ));
   }
   else {

@@ -53,7 +53,6 @@ features[search_api_index][] = database_node_index
 features[search_api_index][] = node_index
 features[search_api_server][] = database_server
 features[search_api_server][] = solr_server
-features[user_permission][] = use custom search
 features[variable][] = facetapi:block_cache:search_api@database_node_index
 features[variable][] = facetapi:block_cache:search_api@node_index
 features[variable][] = search_active_modules

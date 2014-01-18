@@ -14,6 +14,7 @@ function wetkit_search_user_default_permissions() {
   $permissions['use custom search'] = array(
     'name' => 'use custom search',
     'roles' => array(
+      'administrator' => 'administrator',
       'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
     ),
@@ -24,6 +25,7 @@ function wetkit_search_user_default_permissions() {
   $permissions['use custom search blocks'] = array(
     'name' => 'use custom search blocks',
     'roles' => array(
+      'administrator' => 'administrator',
       'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
     ),
