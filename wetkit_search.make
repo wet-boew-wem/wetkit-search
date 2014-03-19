@@ -12,6 +12,7 @@ projects[date_facets][download][type] = git
 projects[date_facets][download][revision] = 2ccceda
 projects[date_facets][download][branch] = 7.x-1.x
 projects[date_facets][patch][2016601] = http://drupal.org/files/date_facets-date-facets-displayed-as-keys-2016601-1.patch
+projects[date_facets][patch][2219547] = http://drupal.org/files/issues/date_facets-undefined-index-2219547-9.patch
 
 projects[facetapi][version] = 1.x-dev
 projects[facetapi][type] = module
