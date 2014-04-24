@@ -5,13 +5,13 @@ core = 7.x
 
 ; Search API
 
-projects[search_api][version] = 1.9
+projects[search_api][version] = 1.11
 projects[search_api][subdir] = contrib
 
-projects[search_api_solr][version] = 1.3
+projects[search_api_solr][version] = 1.4
 projects[search_api_solr][subdir] = contrib
 
-projects[search_api_db][version] = 1.0
+projects[search_api_db][version] = 1.2
 projects[search_api_db][subdir] = contrib
 
 ; Solr PHP Client Library
