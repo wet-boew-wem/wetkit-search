@@ -5,10 +5,14 @@ core = 7.x
 
 ; Facet API
 
-projects[date_facets][version] = 1.0-beta2
+projects[date_facets][version] = 1.x-dev
+projects[date_facets][type] = module
 projects[date_facets][subdir] = contrib
-projects[date_facets][patch][2016601] = http://drupal.org/files/date_facets-date-facets-displayed-as-keys-2016601-1.patch
-projects[date_facets][patch][2220227] = http://drupal.org/files/issues/date_facets-undefined-index-2220227-2.patch
+projects[date_facets][download][type] = git
+projects[date_facets][download][revision] = f2951ca
+projects[date_facets][download][branch] = 7.x-1.x
+projects[date_facets][patch][2016601] = http://drupal.org/files/issues/date_facets-date-facets-displayed-as-keys-2016601-6.patch
+projects[date_facets][patch][2280631] = http://drupal.org/files/issues/date_facets_beta2_dev_Missing_argument_2_Undifined_Index_index_id_field-2280631-5.patch
 
 projects[facetapi][version] = 1.3
 projects[facetapi][subdir] = contrib
@@ -37,4 +41,3 @@ projects[custom_search][patch][2012210] = http://drupal.org/files/commons_search
 
 projects[search404][version] = 1.3
 projects[search404][subdir] = contrib
-
