@@ -74,23 +74,6 @@ function wetkit_search_preprocess_panels_pane(&$variables) {
 }
 
 /**
- * Implements hook_facetapi_facet_info().
- */
-function wetkit_search_facetapi_facet_info($searcher_info) {
-  $facets = array();
-  /*
-  // Example Facets.
-  $facets['ss_example'] = array(
-  'field' => 'ss_example',
-  'label' => t('Example'),
-  'description' => t('Example Description'),
-  'weight' => 10,
-  );
-  */
-  return $facets;
-}
-
-/**
  * Implements hook_facet_items_alter().
  */
 function wetkit_search_facet_items_alter(&$build, &$settings) {
