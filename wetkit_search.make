@@ -14,7 +14,7 @@ projects[date_facets][download][branch] = 7.x-1.x
 projects[date_facets][patch][2016601] = http://drupal.org/files/issues/date_facets-date-facets-displayed-as-keys-2016601-6.patch
 projects[date_facets][patch][2280631] = http://drupal.org/files/issues/date_facets_beta2_dev_Missing_argument_2_Undifined_Index_index_id_field-2280631-5.patch
 
-projects[facetapi][version] = 1.4
+projects[facetapi][version] = 1.5
 projects[facetapi][subdir] = contrib
 
 projects[facetapi_bonus][version] = 1.x-dev
