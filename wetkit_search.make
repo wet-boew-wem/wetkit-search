@@ -14,11 +14,8 @@ projects[date_facets][download][branch] = 7.x-1.x
 projects[date_facets][patch][2016601] = http://drupal.org/files/issues/date_facets-date-facets-displayed-as-keys-2016601-6.patch
 projects[date_facets][patch][2280631] = http://drupal.org/files/issues/date_facets_beta2_dev_Missing_argument_2_Undifined_Index_index_id_field-2280631-5.patch
 
-projects[facetapi][version] = 1.3
+projects[facetapi][version] = 1.5
 projects[facetapi][subdir] = contrib
-projects[facetapi][patch][1804418] = http://drupal.org/files/1804418.disable_or_facets.patch
-projects[facetapi][patch][1900974] = http://drupal.org/files/facetapi-1900974-9.patch
-projects[facetapi][patch][1974058] = http://drupal.org/files/1974058-1.patch
 
 projects[facetapi_bonus][version] = 1.x-dev
 projects[facetapi_bonus][type] = module
