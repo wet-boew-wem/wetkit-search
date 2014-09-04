@@ -35,8 +35,8 @@ projects[facetapi_i18n][patch][2027055] = http://drupal.org/files/missing_reset_
 projects[custom_search][version] = 1.16
 projects[custom_search][subdir] = contrib
 projects[custom_search][patch][2012210] = http://drupal.org/files/commons_search_js_encode.patch
-projects[custom_search][patch][2118723] = http://www.drupal.org/files/issues/custom_search-fix_js_typo-2118723-3.patch
-projects[custom_search][patch][2262105] = http://www.drupal.org/files/issues/custom_search-add-searchapi-support_2262105-6.patch
+projects[custom_search][patch][2118723] = http://drupal.org/files/issues/custom_search-fix_js_typo-2118723-3.patch
+projects[custom_search][patch][2262105] = http://drupal.org/files/issues/custom_search-add-searchapi-support_2262105-6.patch
 
 projects[search404][version] = 1.3
 projects[search404][subdir] = contrib
