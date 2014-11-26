@@ -16,6 +16,7 @@ projects[date_facets][patch][2280631] = http://drupal.org/files/issues/date_face
 
 projects[facetapi][version] = 1.5
 projects[facetapi][subdir] = contrib
+projects[facetapi][patch][2378693] = http://drupal.org/files/issues/notice_undefined-2378693-3.patch
 
 projects[facetapi_bonus][version] = 1.x-dev
 projects[facetapi_bonus][type] = module
