@@ -63,7 +63,7 @@ function wetkit_apachesolr_apachesolr_search_snippets__file($vars) {
     $file_type = t('@filemime', array('@filemime' => $doc->ss_filemime));
   }
 
-  return implode(' ... ', $snippets) . '<span>' . $file_type . ' <em>attached to:</em>' . implode(', ', $parent_entity_links) . '</span>';
+  return implode(' ... ', $snippets) . '<span>' . $file_type . '<em>' . t('attached to:') . '</em>' . implode(', ', $parent_entity_links) . '</span>';
 }
 
 /**
