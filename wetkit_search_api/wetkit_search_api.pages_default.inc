@@ -234,7 +234,7 @@ function wetkit_search_api_default_page_manager_pages() {
     'body_classes_to_add' => '',
   );
   $display = new panels_display();
-  $display->layout = 'burr_flipped';
+  $display->layout = 'riel';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -250,7 +250,7 @@ function wetkit_search_api_default_page_manager_pages() {
   $display->panels = array();
     $pane = new stdClass();
     $pane->pid = 'new-fff42db3-c7a5-9f14-ad00-0b057ac160a3';
-    $pane->panel = 'contentmain';
+    $pane->panel = 'riel_first';
     $pane->type = 'search_current';
     $pane->subtype = 'search_current';
     $pane->shown = TRUE;
@@ -273,24 +273,25 @@ function wetkit_search_api_default_page_manager_pages() {
     $pane->locks = array();
     $pane->uuid = 'fff42db3-c7a5-9f14-ad00-0b057ac160a3';
     $display->content['new-fff42db3-c7a5-9f14-ad00-0b057ac160a3'] = $pane;
-    $display->panels['contentmain'][0] = 'new-fff42db3-c7a5-9f14-ad00-0b057ac160a3';
+    $display->panels['riel_first'][0] = 'new-fff42db3-c7a5-9f14-ad00-0b057ac160a3';
     $pane = new stdClass();
     $pane->pid = 'new-42602580-12c1-71d4-c5ab-39a408b759e7';
-    $pane->panel = 'contentmain';
+    $pane->panel = 'riel_first';
     $pane->type = 'search_box';
     $pane->subtype = 'search_box';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
       'type' => 'node',
-      'form' => 'simple',
+      'form' => 'advanced',
       'path_type' => 'default',
       'path' => '',
       'override_prompt' => 1,
       'prompt' => '',
-      'context' => array(),
+      'context' => 'argument_string_1',
       'override_title' => 1,
       'override_title_text' => '',
+      'override_title_heading' => 'h2',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -302,10 +303,10 @@ function wetkit_search_api_default_page_manager_pages() {
     $pane->locks = array();
     $pane->uuid = '42602580-12c1-71d4-c5ab-39a408b759e7';
     $display->content['new-42602580-12c1-71d4-c5ab-39a408b759e7'] = $pane;
-    $display->panels['contentmain'][1] = 'new-42602580-12c1-71d4-c5ab-39a408b759e7';
+    $display->panels['riel_first'][1] = 'new-42602580-12c1-71d4-c5ab-39a408b759e7';
     $pane = new stdClass();
     $pane->pid = 'new-2a5192f7-9e54-5134-010c-7531d67c54ec';
-    $pane->panel = 'contentmain';
+    $pane->panel = 'riel_first';
     $pane->type = 'views_panes';
     $pane->subtype = 'wetkit_database_search-search_database_results';
     $pane->shown = TRUE;
@@ -341,10 +342,10 @@ function wetkit_search_api_default_page_manager_pages() {
     $pane->locks = array();
     $pane->uuid = '2a5192f7-9e54-5134-010c-7531d67c54ec';
     $display->content['new-2a5192f7-9e54-5134-010c-7531d67c54ec'] = $pane;
-    $display->panels['contentmain'][2] = 'new-2a5192f7-9e54-5134-010c-7531d67c54ec';
+    $display->panels['riel_first'][2] = 'new-2a5192f7-9e54-5134-010c-7531d67c54ec';
     $pane = new stdClass();
     $pane->pid = 'new-017cd573-8a64-3e04-f560-5220a5425b34';
-    $pane->panel = 'sidebar';
+    $pane->panel = 'riel_second';
     $pane->type = 'facet';
     $pane->subtype = 'facet';
     $pane->shown = TRUE;
@@ -357,15 +358,58 @@ function wetkit_search_api_default_page_manager_pages() {
     );
     $pane->cache = array();
     $pane->style = array(
-      'settings' => NULL,
+      'settings' => array(
+        'modifier_class' => '',
+        'collapsible' => 0,
+        'collapsed' => 0,
+        'hide_classes' => array(
+          'hidden-xs' => 0,
+          'hidden-sm' => 0,
+          'hidden-md' => 0,
+          'hidden-lg' => 0,
+        ),
+        'additional_classes' => array(
+          'pull-left' => 0,
+          'pull-right' => 0,
+          'clearfix' => 0,
+        ),
+      ),
+      'style' => 'bootstrap_styles:panel',
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'mrgn-tp-lg',
+    );
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
     $pane->uuid = '017cd573-8a64-3e04-f560-5220a5425b34';
     $display->content['new-017cd573-8a64-3e04-f560-5220a5425b34'] = $pane;
-    $display->panels['sidebar'][0] = 'new-017cd573-8a64-3e04-f560-5220a5425b34';
+    $display->panels['riel_second'][0] = 'new-017cd573-8a64-3e04-f560-5220a5425b34';
+    $pane = new stdClass();
+    $pane->pid = 'new-9c884814-bfc3-4ffe-bb14-ee9a5b06f80d';
+    $pane->panel = 'riel_top';
+    $pane->type = 'page_title';
+    $pane->subtype = 'page_title';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'markup' => 'h1',
+      'class' => '',
+      'id' => 'wb-cont',
+      'override_title' => 0,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array();
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '9c884814-bfc3-4ffe-bb14-ee9a5b06f80d';
+    $display->content['new-9c884814-bfc3-4ffe-bb14-ee9a5b06f80d'] = $pane;
+    $display->panels['riel_top'][0] = 'new-9c884814-bfc3-4ffe-bb14-ee9a5b06f80d';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

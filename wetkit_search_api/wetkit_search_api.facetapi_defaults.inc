@@ -41,6 +41,8 @@ function wetkit_search_api_facetapi_default_facet_settings() {
     'soft_limit' => 20,
     'nofollow' => 1,
     'show_expanded' => 0,
+    'facet_more_text' => 'Show more',
+    'facet_fewer_text' => 'Show fewer',
   );
   $export['search_api@database_node_index:block:author'] = $facet;
 
@@ -83,6 +85,8 @@ function wetkit_search_api_facetapi_default_facet_settings() {
       'format' => 'wetkit_wysiwyg_text',
     ),
     'submit_realm' => 'Save and go back to realm settings',
+    'facet_more_text' => 'Show more',
+    'facet_fewer_text' => 'Show fewer',
   );
   $export['search_api@database_node_index:block:created'] = $facet;
 
@@ -117,6 +121,8 @@ function wetkit_search_api_facetapi_default_facet_settings() {
     'soft_limit' => 20,
     'nofollow' => 1,
     'show_expanded' => 0,
+    'facet_more_text' => 'Show more',
+    'facet_fewer_text' => 'Show fewer',
   );
   $export['search_api@database_node_index:block:search_api_language'] = $facet;
 
@@ -151,6 +157,8 @@ function wetkit_search_api_facetapi_default_facet_settings() {
     'soft_limit' => 20,
     'nofollow' => 1,
     'show_expanded' => 0,
+    'facet_more_text' => 'Show more',
+    'facet_fewer_text' => 'Show fewer',
   );
   $export['search_api@database_node_index:block:search_api_url'] = $facet;
 
@@ -185,6 +193,8 @@ function wetkit_search_api_facetapi_default_facet_settings() {
     'soft_limit' => 20,
     'nofollow' => 1,
     'show_expanded' => 0,
+    'facet_more_text' => 'Show more',
+    'facet_fewer_text' => 'Show fewer',
   );
   $export['search_api@database_node_index:block:search_api_viewed'] = $facet;
 
@@ -219,6 +229,8 @@ function wetkit_search_api_facetapi_default_facet_settings() {
     'soft_limit' => 20,
     'nofollow' => 1,
     'show_expanded' => 0,
+    'facet_more_text' => 'Show more',
+    'facet_fewer_text' => 'Show fewer',
   );
   $export['search_api@database_node_index:block:status'] = $facet;
 
@@ -253,6 +265,8 @@ function wetkit_search_api_facetapi_default_facet_settings() {
     'soft_limit' => 20,
     'nofollow' => 1,
     'show_expanded' => 0,
+    'facet_more_text' => 'Show more',
+    'facet_fewer_text' => 'Show fewer',
   );
   $export['search_api@database_node_index:block:title'] = $facet;
 
@@ -295,6 +309,8 @@ function wetkit_search_api_facetapi_default_facet_settings() {
       'format' => 'wetkit_wysiwyg_text',
     ),
     'submit_realm' => 'Save and go back to realm settings',
+    'facet_more_text' => 'Show more',
+    'facet_fewer_text' => 'Show fewer',
   );
   $export['search_api@database_node_index:block:type'] = $facet;
 
@@ -329,6 +345,8 @@ function wetkit_search_api_facetapi_default_facet_settings() {
     'soft_limit' => 20,
     'nofollow' => 1,
     'show_expanded' => 0,
+    'facet_more_text' => 'Show more',
+    'facet_fewer_text' => 'Show fewer',
   );
   $export['search_api@database_node_index:block:url'] = $facet;
 

@@ -33,5 +33,5 @@ function wetkit_search_api_search_api_index_ctools_access_check($conf, $context)
  * Provide a summary description based upon the checked terms.
  */
 function wetkit_search_api_search_api_index_ctools_access_summary($conf, $context) {
-  return t('WetKit Search API index is Enabled');
+  return t('WxT Search index is Enabled');
 }

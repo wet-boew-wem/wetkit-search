@@ -47,31 +47,26 @@ function wetkit_search_api_facet_content_type_admin_title($subtype, $conf, $cont
  *   The returned string for the facets related to WetKit Search.
  */
 function wetkit_search_api_facet_content_type_edit_form($form, &$form_state) {
+
   // Determine what deltas Facet API Supports.
   $map = facetapi_get_delta_map();
   $deltas = array();
   $realm_name = 'block';
   foreach (facetapi_get_searcher_info() as $searcher => $info) {
     foreach (facetapi_get_delta_map_queue($searcher, $realm_name) as $facet_name) {
-      $facet = facetapi_facet_load($facet_name, $searcher);
-      if (isset($facet)) {
-        $string = facetapi_build_delta($searcher, $realm_name, $facet_name);
-        if (isset($string)) {
-          $delta = array_search($string, $map);
-          if (isset($delta)) {
+      if ($facet = facetapi_facet_load($facet_name, $searcher)) {
+        if ($string = facetapi_build_delta($searcher, $realm_name, $facet_name)) {
+          if ($delta = array_search($string, $map)) {
             switch ($searcher) {
               case 'search_api@database_node_index':
                 $deltas[$delta] = 'DB: ' . $facet_name;
                 break;
-
               case 'search_api@node_index':
                 $deltas[$delta] = 'Solr: ' . $facet_name;
                 break;
-
               default:
                 $deltas[$delta] = 'Unknown: ' . $facet_name;
                 break;
-
             }
           }
         }

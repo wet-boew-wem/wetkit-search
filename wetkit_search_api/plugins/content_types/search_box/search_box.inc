@@ -28,6 +28,7 @@ $plugin = array(
  * Render the custom content type.
  */
 function wetkit_search_api_search_box_content_type_render($subtype, $conf, $panel_args, $context) {
+
   if (empty($context) || empty($context->data)) {
     $keys = '';
   }
@@ -46,16 +47,13 @@ function wetkit_search_api_search_box_content_type_render($subtype, $conf, $pane
     case 'default':
       $path = 'search/' . $conf['type'];
       break;
-
     case 'same':
       $path = $_GET['q'];
       $path = str_replace($keys, '', $path);
       break;
-
     case 'custom':
       $path = $conf['path'];
       break;
-
   }
 
   $prompt = $conf['override_prompt'] ? $conf['prompt'] : NULL;
@@ -69,6 +67,7 @@ function wetkit_search_api_search_box_content_type_render($subtype, $conf, $pane
   module_load_include('inc', 'search', 'search.pages');
 
   $block->content = drupal_build_form('search_form', $form_state);
+  $block->content['basic']['keys']['#title'] = t('Enter your keywords');
   if ($conf['form'] == 'simple' && isset($block->content['advanced'])) {
     $block->content['advanced']['#access'] = FALSE;
   }

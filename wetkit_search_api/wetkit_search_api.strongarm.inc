@@ -14,7 +14,7 @@ function wetkit_search_api_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'facetapi:block_cache:search_api@database_node_index';
-  $strongarm->value = -1;
+  $strongarm->value = '-1';
   $export['facetapi:block_cache:search_api@database_node_index'] = $strongarm;
 
   $strongarm = new stdClass();
