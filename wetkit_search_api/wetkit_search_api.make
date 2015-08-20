@@ -5,6 +5,9 @@ core = 7.x
 
 ; Search API
 
+projects[sarnia][version] = 1.1-beta6
+projects[sarnia][subdir] = contrib
+
 projects[search_api][version] = 1.15
 projects[search_api][subdir] = contrib
 projects[search_api][patch][2479453] = http://drupal.org/files/issues/2479453-6--drush_enable_servers.patch

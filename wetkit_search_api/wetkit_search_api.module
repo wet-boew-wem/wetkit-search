@@ -30,7 +30,12 @@ function wetkit_search_api_form_alter(&$form, &$form_state, $form_id) {
  */
 function wetkit_search_api_all_form_submit($form, &$form_state) {
   $keys = trim($form_state['values']['keys']);
-  $module = !empty($form_state['values']['module']) ? $form_state['values']['module'] : 'site';
-  $module = ($module === 'node') ? 'site' : $module;
+  if ($form_state['action'] == 'search/external') {
+    $module = 'external';
+  }
+  else {
+    $module = !empty($form_state['values']['module']) ? $form_state['values']['module'] : 'site';
+    $module = ($module === 'node') ? 'site' : $module;
+  }
   $form_state['redirect'] = array('search/' . $module . '/' . $keys);
 }
