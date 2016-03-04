@@ -36,5 +36,5 @@ projects[facetapi_i18n][patch][2027055] = http://drupal.org/files/missing_reset_
 projects[custom_search][version] = 1.20
 projects[custom_search][subdir] = contrib
 
-projects[search404][version] = 1.3
+projects[search404][version] = 1.4
 projects[search404][subdir] = contrib
