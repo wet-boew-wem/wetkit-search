@@ -12,7 +12,7 @@ projects[facetapi][version] = 1.5
 projects[facetapi][subdir] = contrib
 projects[facetapi][patch][2378693] = http://drupal.org/files/issues/notice_undefined-2378693-3.patch
 
-projects[facetapi_bonus][version] = 1.3-rc1
+projects[facetapi_bonus][version] = 1.3-rc2
 projects[facetapi_bonus][subdir] = contrib
 
 projects[facetapi_i18n][version] = 1.0-beta2
